@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee, faBook, faComputer, faAnchor } from "@fortawesome/free-solid-svg-icons";
+import { faRightToBracket, faToolbox, faHome, faChalkboard } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 export default function sidebar() {
@@ -14,25 +14,24 @@ export default function sidebar() {
           <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             <li className="nav-item">
               <Link to={"/"} className="nav-link align-middle px-0 dashboard-sidebar-hover">
-                <FontAwesomeIcon className="fs4" icon={faComputer} /> <span className="ms-1 d-none d-sm-inline">Home</span>
+                <FontAwesomeIcon className="fs4" icon={faHome} /> <span className="ms-1 d-none d-sm-inline">Home</span>
               </Link>
             </li>
 
             <li>
               <Link to={"/tools"} className="nav-link align-middle px-0 dashboard-sidebar-hover">
-                <FontAwesomeIcon className="fs4" icon={faComputer} /> <span className="ms-1 d-none d-sm-inline">Tools</span>
+                <FontAwesomeIcon className="fs4" icon={faToolbox} /> <span className="ms-1 d-none d-sm-inline">Tools</span>
               </Link>
             </li>
 
             <li>
               <Link to={"/dashboard"} className="nav-link align-middle px-0 dashboard-sidebar-hover">
-                <FontAwesomeIcon className="fs4" icon={faComputer} /> <span className="ms-1 d-none d-sm-inline">Dashboard</span>
+                <FontAwesomeIcon className="fs4" icon={faChalkboard} /> <span className="ms-1 d-none d-sm-inline">Dashboard</span>
               </Link>
             </li>
-
             <li>
               <Link to={"/"} className="nav-link align-middle px-0 dashboard-sidebar-hover">
-                <FontAwesomeIcon className="fs4" icon={faComputer} /> <span className="ms-1 d-none d-sm-inline">Home</span>
+                <FontAwesomeIcon className="fs4" icon={faRightToBracket} /> <span className="ms-1 d-none d-sm-inline">Sign Out</span>
               </Link>
             </li>
           </ul>
