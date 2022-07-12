@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoffee, faBook, faComputer, faAnchor } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 export default function sidebar() {
   return (
@@ -12,27 +13,27 @@ export default function sidebar() {
           </a>
           <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             <li className="nav-item">
-              <a href="#" className="nav-link align-middle px-0 dashboard-sidebar-hover">
+              <Link to={"/"} className="nav-link align-middle px-0 dashboard-sidebar-hover">
                 <FontAwesomeIcon className="fs4" icon={faComputer} /> <span className="ms-1 d-none d-sm-inline">Home</span>
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a href="#" className="nav-link px-0 align-middle dashboard-sidebar-hover">
+              <Link to={"/tools"} className="nav-link align-middle px-0 dashboard-sidebar-hover">
                 <FontAwesomeIcon className="fs4" icon={faComputer} /> <span className="ms-1 d-none d-sm-inline">Tools</span>
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a href="#" className="nav-link px-0 align-middle dashboard-sidebar-hover">
-                <FontAwesomeIcon className="fs4" icon={faComputer} /> <span className="ms-1 d-none d-sm-inline">User List</span>
-              </a>
+              <Link to={"/dashboard"} className="nav-link align-middle px-0 dashboard-sidebar-hover">
+                <FontAwesomeIcon className="fs4" icon={faComputer} /> <span className="ms-1 d-none d-sm-inline">Dashboard</span>
+              </Link>
             </li>
 
             <li>
-              <a href="#" className="nav-link px-0 align-middle dashboard-sidebar-hover">
-                <FontAwesomeIcon className="fs4" icon={faComputer} /> <span className="ms-1 d-none d-sm-inline">Tools</span>
-              </a>
+              <Link to={"/"} className="nav-link align-middle px-0 dashboard-sidebar-hover">
+                <FontAwesomeIcon className="fs4" icon={faComputer} /> <span className="ms-1 d-none d-sm-inline">Home</span>
+              </Link>
             </li>
           </ul>
         </div>
