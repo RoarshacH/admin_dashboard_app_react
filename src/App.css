@@ -36,3 +36,252 @@
     transform: rotate(360deg);
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+.header-img {
+  position: relative;
+  bottom: 0.1rem;
+  width: 2rem;
+}
+
+.text-jumbo {
+  color: #e9f9e9;
+}
+
+.header-animated {
+  cursor: pointer;
+  background-image: linear-gradient(to right, #3cbd56, #3cbd56 50%, #247033 50%);
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 3rem;
+}
+
+.header-animated:before {
+  content: "";
+  background: #3cbd56;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-animated:hover {
+  background-position: 0;
+}
+
+.header-animated:hover::before {
+  width: 100%;
+}
+
+.footer {
+  margin-top: 0.4rem;
+  background-color: rgb(235, 195, 64);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.link-text {
+  color: #96f2a9;
+  text-decoration: none;
+}
+
+.link-text :hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.fw-light {
+  padding-top: 20px;
+}
+
+.custom-img img {
+  width: 15rem;
+}
+
+.card-custom {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.card-custom .card-custom-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  opacity: 0;
+  color: #fff;
+  background: rgba(24, 70, 33, 0.9);
+  transition: opacity 0.25s ease;
+  text-align: center;
+}
+
+.card-custom .card-custom-caption .project-category {
+  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.card-custom .card-custom-caption .card-name {
+  font-size: 1.2rem;
+}
+.card-custom:hover .card-custom-caption {
+  opacity: 1;
+}
+
+.addInputItems {
+  padding-top: 2rem;
+}
+
+/* Responsive Stuff */
+@media (max-width: 768px) {
+  .custom-button {
+    background-color: #fdefd4;
+    color: #48687f;
+  }
+  .custom-img {
+    display: none;
+  }
+  .link-btn {
+    display: none;
+  }
+  .col-md-6.custom-table-container {
+    margin-top: 100px;
+  }
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Dashboard */
+
+.sidebar {
+  position: fixed;
+  top: 1rem;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 48px 0 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 5rem;
+  }
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #727272;
+}
+
+.sidebar .nav-link.active {
+  color: #2470dc;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+.container-custom {
+  padding-top: 1rem;
+}
+.dashboard-sidebar-hover {
+  color: white !important;
+}
+
+.dashboard-sidebar-hover:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: #96f2a9 !important;
+}
