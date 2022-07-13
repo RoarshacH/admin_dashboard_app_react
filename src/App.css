@@ -62,7 +62,7 @@ html {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 0.3s ease-in-out;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .header-animated:before {

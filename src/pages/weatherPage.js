@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import WeatherCard from "../components/weatherCard";
 import Sidebar from "../components/sidebar";
 
-export default function Tools() {
+export default function WeatherPage() {
   const [data, setData] = useState([]);
   const [weathError, showWeathError] = useState(false);
 
@@ -24,15 +24,14 @@ export default function Tools() {
         <div className="row flex-nowrap">
           <Sidebar />
           <div className="col py-3">
+            <h1 className="font-weight-bold text-center header-animated mt-5">Weather Data</h1>
             <div className="row">
               <div className="col-md-6" style={{ marginTop: "4rem" }}>
-                <h1 className="font-weight-bold header-animated">Weather App</h1>
                 <div className="align-items-center justify-content-center">
                   <WeatherCard weatherData={data} showError={showWeathError} error={weathError} />
                 </div>
               </div>
               <div className="col-md-6" style={{ marginTop: "4rem" }}>
-                <h1 className="font-weight-bold header-animated">Weather App</h1>
                 <div className="align-items-center justify-content-center">
                   <WeatherCard weatherData={data} showError={showWeathError} error={weathError} />
                 </div>
