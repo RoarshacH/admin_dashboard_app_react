@@ -11,13 +11,11 @@ export default function WeatherCard({ weatherData, error, showError }) {
           <Card.Body>
             <Card.Title>Todays Weather</Card.Title>
             <Card.Text>
-              <p>
-                {showError(false)}
-                Temprature: {weatherData.main.temp} &deg;C Sunrise: {new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString("en-IN")} <br />
-                Sunset: {new Date(weatherData.sys.sunset * 1000).toLocaleTimeString("en-IN")} <br />
-                Description: {weatherData.weather[0].main} <br />
-                Humidity: {weatherData.main.humidity} %
-              </p>
+              {showError(false)}
+              Temprature: {weatherData.main.temp} &deg;C Sunrise: {new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString("en-IN")} <br />
+              Sunset: {new Date(weatherData.sys.sunset * 1000).toLocaleTimeString("en-IN")} <br />
+              Description: {weatherData.weather[0].main} <br />
+              Humidity: {weatherData.main.humidity} %
             </Card.Text>
           </Card.Body>
         ) : (

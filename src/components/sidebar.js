@@ -25,7 +25,7 @@ export default function sidebar() {
             </li>
 
             <li>
-              <Link to={"/weather"} className="nav-link align-middle px-0 dashboard-sidebar-hover">
+              <Link to={"/stocks"} className="nav-link align-middle px-0 dashboard-sidebar-hover">
                 <FontAwesomeIcon className="fs4" icon={faLineChart} /> <span className="ms-1 d-none d-sm-inline">Stocks</span>
               </Link>
             </li>

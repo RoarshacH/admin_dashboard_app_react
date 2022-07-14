@@ -7,6 +7,7 @@ import SignIn from "./pages/signin";
 import RegiserUser from "./pages/registerUser";
 import Dashboard from "./pages/dashboard";
 import WeatherPage from "./pages/weatherPage";
+import BitcoinPage from "./pages/bitcoinPage";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/register" exact element={<RegiserUser />} />
         <Route path="/dashboard" exact element={<Dashboard />} />
         <Route path="/weather" exact element={<WeatherPage />} />
+        <Route path="/stocks" exact element={<BitcoinPage />} />
       </Routes>
     </div>
   );
