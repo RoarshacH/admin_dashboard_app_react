@@ -393,3 +393,24 @@ html {
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #e6e6e6;
 }
+
+/* price-container */
+
+/* For Mobile Hide Large Chart */
+@media (max-width: 767.98px) {
+  .large-chart {
+    display: none;
+  }
+  .small-chart {
+    visibility: visible;
+  }
+}
+/* For Large Screens */
+@media (min-width: 767.98px) {
+  .large-chart {
+    display: inline;
+  }
+  .small-chart {
+    display: none;
+  }
+}

@@ -3,6 +3,8 @@ import Error from "../components/error";
 import { Card, Dimmer, Loader, Select } from "semantic-ui-react";
 import Chart from "react-apexcharts";
 import Sidebar from "../components/sidebar";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 
 export default function BitcoinWidget() {
   const [loading, setLoading] = useState(true);
@@ -67,20 +69,18 @@ export default function BitcoinWidget() {
                 </div>
               ) : (
                 <>
-                  {/* <div
-                    className="price-container"
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-around",
-                      alignItems: "center",
-                      width: 600,
-                      height: 300,
-                      margin: "0 auto",
-                    }}
-                  >
-                    <div className="form">
-                      <Select placeholder="Select your currency" onChange={handleSelect} options={options} />
-                    </div>
+                  <div className="price-container">
+                    {/* <DropdownButton id="dropdown-basic-button" title="Select your currency">
+                        {options.map((item) => {
+                          {
+                            console.log(item);
+                          }
+
+                          <Dropdown.Item onClick={handleSelect}>{item}</Dropdown.Item>;
+                        })}
+                      </DropdownButton> */}
+                    <Select placeholder="Select your currency" onChange={handleSelect} options={options} />
+
                     <div className="price">
                       <Card>
                         <Card.Content>
@@ -89,9 +89,11 @@ export default function BitcoinWidget() {
                         </Card.Content>
                       </Card>
                     </div>
-                  </div> */}
-                  <div style={{ display: "flex", justifyContent: "center" }}>
-                    <Chart options={chartData} series={series} type="line" width="1200" height="300" />
+                  </div>
+                  <div className="col col-md-12" style={{ justifyContent: "center" }}>
+                    <Chart className={"large-chart"} options={chartData} series={series} type="line" width="1200" height="300" />
+
+                    <Chart className={"small-chart"} options={chartData} series={series} type="line" width="300" height="300" />
                   </div>
                 </>
               )}
