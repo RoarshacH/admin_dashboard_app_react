@@ -7,7 +7,7 @@ export default function CalanderWidget() {
   const [value, onChange] = useState(new Date());
 
   return (
-    <div className="col-md-6 card" style={{ marginTop: "1rem" }}>
+    <div className="col-md-4 card" style={{ marginTop: "1rem" }}>
       <h4 className="font-weight-bold header-animated my-2" style={{ marginBottom: "0rem" }}>
         Calander Widget
       </h4>

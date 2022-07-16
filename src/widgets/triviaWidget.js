@@ -57,7 +57,8 @@ export default function TriviaWidget() {
           <div className="card-body align-items-center justify-content-center">
             <h5 className="card-title">{data["category"]}</h5>
             <h6 className="card-subtitle mb-2 text-muted">{data["difficulty"]}</h6>
-            <p className="card-text">{data["question"]}</p>
+            {/* Because React does not render symbols as it is */}
+            <p dangerouslySetInnerHTML={{ __html: data["question"] }} className="card-text"></p>
             <p>
               {/* change refresh State so that useEffect will run to alod data again  */}
               <button className="btn btn-link" onClick={() => setRefresh(true)}>

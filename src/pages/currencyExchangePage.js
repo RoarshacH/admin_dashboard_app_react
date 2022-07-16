@@ -40,51 +40,43 @@ export default function CurrencyExchangePage() {
   return (
     <>
       <div className="container-fluid">
-        <div className="row flex-nowrap ">
+        <div className="row flex-nowrap">
           <Sidebar />
-          <div className="container py-3 mx-4">
-            <h1 className="font-weight-bold text-center header-animated mt-5">Exchage Rates for Canadian Dollars</h1>
-            <div className="row mx-4">
-              {loading ? (
-                <div>
-                  <h2>Data Error</h2>
-                </div>
-              ) : (
-                <>
-                  <div className="price-container">
-                    {/* <DropdownButton id="dropdown-basic-button" title="Select your currency">
-                        {options.map((item) => {
-                          {
-                            console.log(item);
-                          }
-
-                          <Dropdown.Item onClick={handleSelect}>{item}</Dropdown.Item>;
-                        })}
-                      </DropdownButton> */}
-
-                    <div class="table-responsive">
-                      <table class="table table-striped table-sm">
-                        <thead>
-                          <tr>
-                            <th scope="col">Currency</th>
-                            <th scope="col">Rate</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {Object.keys(rates).map((key) => {
-                            return (
-                              <tr key={key}>
-                                <td>{key}</td>
-                                <td>{rates[key]}</td>
-                              </tr>
-                            );
-                          })}
-                        </tbody>
-                      </table>
+          <div className="col py-3">
+            <h1 className="font-weight-bold text-center header-animated mt-5">Canadian Dollar Exchange Rates Data</h1>
+            <div className="row">
+              <div className="col-md-12">
+                <div className="d-flex align-items-center justify-content-center">
+                  {loading ? (
+                    <div>
+                      <h2>Data Error</h2>
                     </div>
-                  </div>
-                </>
-              )}
+                  ) : (
+                    <>
+                      <div class="table-responsive col-md-8">
+                        <table class="table table-striped table-sm">
+                          <thead>
+                            <tr>
+                              <th scope="col">Currency</th>
+                              <th scope="col">Rate</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {Object.keys(rates).map((key) => {
+                              return (
+                                <tr key={key}>
+                                  <td>{key}</td>
+                                  <td>{rates[key]}</td>
+                                </tr>
+                              );
+                            })}
+                          </tbody>
+                        </table>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </div>

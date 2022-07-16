@@ -2,7 +2,8 @@ import React, { useRef, useState } from "react";
 import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
 import { Alert } from "react-bootstrap";
-import { doc, setDoc, getFirestore } from "firebase/firestore";
+import { db } from "../services/firebase";
+import { setDoc, doc } from "firebase/firestore";
 
 const Register = () => {
   const emailRef = useRef();
@@ -13,27 +14,22 @@ const Register = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const db = getFirestore();
+
+  // Runs after the user registers and stores other user data in firebase database if successfull redirect to home page
+  const createUser = async (user, userName) => {
+    await setDoc(doc(db, "users", user.uid), { displayName: user.displayName, email: user.email, name: userName })
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        alert(errorMessage);
+        setError(errorMessage);
+      });
+  };
 
   // Runs when the user submits the form validate the fields and if theere are any it will set errors
   // if all fields are valid use the signup function from AuthContext and signup the user
-  async function setDataDB(user, name) {
-    if (user !== null) {
-      await setDoc(doc(db, "users", user.uid), {
-        name: name,
-        email: user.email,
-        displayName: user.displayName,
-      })
-        .then(() => {
-          navigate("/");
-        })
-        .catch((error) => {
-          const errorMessage = error.message;
-          setError(errorMessage);
-        });
-    }
-  }
-
   async function onSubmit(e) {
     e.preventDefault();
 
@@ -52,14 +48,17 @@ const Register = () => {
           .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
-            navigate("/");
-            setDataDB(user, name);
+            createUser(user, name);
+            // navigate("/");
+            // setDataDB(user, name);
             // if successfully registed redirect the user to sign in page
+            setLoading(false);
           })
           .catch((error) => {
             const errorMessage = error.message;
             setError(errorMessage);
             // If there are any errors set the errors
+            setLoading(false);
           });
       } catch {
         setError("Failed to create an account");
@@ -96,9 +95,17 @@ const Register = () => {
         </label>
         <input type="password" id="inputPasswordConf" ref={passwordConfirmRef} className="form-control" placeholder="Confirm Password" required />
 
-        <button className="btn btn-lg btn-primary btn-block" type="submit">
-          Sign in
-        </button>
+        {loading ? (
+          <button className="btn btn-lg btn-primary btn-block " type="submit" disabled>
+            {" "}
+            Loading...
+          </button>
+        ) : (
+          <button className="btn btn-lg btn-primary btn-block " type="submit">
+            {" "}
+            Sign in
+          </button>
+        )}
       </form>
     </div>
   );
