@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import WeatherCard from "../components/weatherCard";
+import WeatherComponent from "../components/weatherComponent";
 import Sidebar from "../components/sidebar";
+import Error from "../components/error";
 
 export default function WeatherPage() {
   const [data, setData] = useState([]);
@@ -26,17 +27,13 @@ export default function WeatherPage() {
           <div className="col py-3">
             <h1 className="font-weight-bold text-center header-animated mt-5">Weather Data</h1>
             <div className="row">
-              <div className="col-md-6" style={{ marginTop: "4rem" }}>
+              <div className="col-md-12" style={{ marginTop: "4rem" }}>
                 <div className="align-items-center justify-content-center">
-                  <WeatherCard weatherData={data} showError={showWeathError} error={weathError} />
-                </div>
-              </div>
-              <div className="col-md-6" style={{ marginTop: "4rem" }}>
-                <div className="align-items-center justify-content-center">
-                  <WeatherCard weatherData={data} showError={showWeathError} error={weathError} />
+                  <WeatherComponent weatherData={data} showError={showWeathError} error={weathError} />
                 </div>
               </div>
             </div>
+            <Error showError={showWeathError} error={weathError} />
           </div>
         </div>
       </div>

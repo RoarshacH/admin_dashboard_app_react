@@ -1,38 +1,74 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../App.css";
+import React, { useRef, useState } from "react";
+import { useAuth } from "../context/authContext";
+import { useNavigate } from "react-router-dom";
+import { Alert } from "react-bootstrap";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee, faBook, faComputer, faAnchor } from "@fortawesome/free-solid-svg-icons";
+const SignIn = () => {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const { login, resetPassword } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-export default function signin() {
+  // runs when the user sumits the signin form gets the email and password from ref values of the corosponding inputs
+  // perform validations on them and call the login function from authContext
+  async function onSubmit(e) {
+    e.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    if (email && password) {
+      try {
+        setError("");
+        setLoading(true);
+        await login(email, password)
+          .then((userCredential) => {
+            // Signed in
+            // const user = userCredential.user;
+            navigate("/dashboard");
+            // if successfuly login redirect the user to dashboard
+          })
+          .catch((error) => {
+            // if there is a  error set error values
+            const errorMessage = error.message;
+            setError(errorMessage);
+            // ..
+          });
+      } catch {
+        setError("Failed to log in");
+      }
+    }
+  }
+  // When the user clicks the forget password a reste email will be set using firebase function for the email in the email field
+  async function forgotPasswordHandler() {
+    const email = emailRef.current.value;
+    if (email) {
+      await resetPassword(emailRef.current.value).then(() => (emailRef.current.value = ""));
+    }
+  }
   return (
-    <>
-      <main className="form-signin text-center">
-        <form>
-          <img className="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57" />
-          <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+    <div className="container-fluid h-100 text-center align-middle auth-container mt-5 mb-5">
+      <form className="form-signin  card mt-5" onSubmit={onSubmit}>
+        <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+        {/* Render the Signin Errors here if there are any */}
+        {error && <Alert variant="danger">{error}</Alert>}
+        <label for="inputEmail" className="sr-only">
+          Email address
+        </label>
+        <input type="email" id="inputEmail" ref={emailRef} className="form-control" placeholder="Email address" required autofocus />
 
-          <div className="form-floating">
-            <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
-            <label for="floatingInput">Email address</label>
-          </div>
-          <div className="form-floating">
-            <input type="password" className="form-control" id="floatingPassword" placeholder="Password" />
-            <label for="floatingPassword">Password</label>
-          </div>
+        <label for="inputPassword" className="sr-only">
+          Password
+        </label>
+        <input type="password" id="inputPassword" ref={passwordRef} className="form-control" placeholder="Password" required />
 
-          <div className="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me" /> Remember me
-            </label>
-          </div>
-          <button className="w-100 btn btn-lg btn-primary" type="submit">
-            Sign in
-          </button>
-          <p className="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
-        </form>
-      </main>
-    </>
+        <button className="btn btn-lg btn-primary btn-block" type="submit">
+          Sign in
+        </button>
+        <p onClick={forgotPasswordHandler}>Forgot Password?</p>
+      </form>
+    </div>
   );
-}
+};
+
+export default SignIn;

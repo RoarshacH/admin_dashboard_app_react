@@ -2,6 +2,8 @@ import React from "react";
 import { Button, Alert } from "react-bootstrap";
 
 export default function Todo({ toDo, index, removeToDo }) {
+  // Renders 1 ToDo Item
+  // when user clicks delete button this function runs to call remove toDo from ToDoWidget Component
   function handleRemove() {
     removeToDo(index);
   }

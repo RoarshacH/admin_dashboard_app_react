@@ -21,11 +21,12 @@ export default function WeatherWidget() {
 
   return (
     <>
-      <div className="col-md-5 card" style={{ marginTop: "4rem" }}>
-        <h4 className="font-weight-bold header-animated pb-4" style={{ marginBottom: "0rem" }}>
+      <div className="col-md-4 h-100 card" style={{ marginTop: "4rem" }}>
+        <h4 className="font-weight-bold header-animated pb-4 mt-2" style={{ marginBottom: "0rem" }}>
           Weather Widget
         </h4>
         <div className="align-items-center justify-content-center">
+          {/* Serve the Weather Card Component with the weather data or error so it can render them  */}
           <WeatherCard weatherData={data} showError={showWeathError} error={weathError} />
         </div>
       </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { Alert, Button } from "react-bootstrap";
 
 export default function Error({ showError, error }) {
+  // Render the Errors for Todo List Widget
   return (
     <div className=" mt-4 row align-items-center justify-content-center">
       {/* Alert */}
