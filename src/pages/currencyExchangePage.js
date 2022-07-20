@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
 import Sidebar from "../components/sidebar";
 
 export default function CurrencyExchangePage() {
@@ -25,17 +23,6 @@ export default function CurrencyExchangePage() {
       console.log(data);
     }
   }, [data]);
-
-  //   const listItems = obj.map((rate) => (
-  //     <tr>
-  //       <td>##</td>
-  //       <td>rate</td>
-  //     </tr>
-  //   ));
-
-  //   const handleSelect = (e, data) => {
-  //     setCurrency(data.value);
-  //   };
 
   return (
     <>
