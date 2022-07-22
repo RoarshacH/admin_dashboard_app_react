@@ -96,12 +96,12 @@ const Register = () => {
         <input type="password" id="inputPasswordConf" ref={passwordConfirmRef} className="form-control" placeholder="Confirm Password" required />
 
         {loading ? (
-          <button className="btn btn-lg btn-primary btn-block " type="submit" disabled>
+          <button className="btn btn-lg btn-success btn-block " type="submit" disabled>
             {" "}
             Loading...
           </button>
         ) : (
-          <button className="btn btn-lg btn-primary btn-block " type="submit">
+          <button className="btn btn-lg btn-success btn-block " type="submit">
             {" "}
             Sign in
           </button>

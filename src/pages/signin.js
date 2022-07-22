@@ -62,7 +62,7 @@ const SignIn = () => {
         </label>
         <input type="password" id="inputPassword" ref={passwordRef} className="form-control" placeholder="Password" required />
 
-        <button className="btn btn-lg btn-primary btn-block" type="submit">
+        <button className="btn btn-lg btn-success btn-block" type="submit">
           Sign in
         </button>
         <p onClick={forgotPasswordHandler}>Forgot Password?</p>
